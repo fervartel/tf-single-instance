@@ -12,17 +12,31 @@ provider "aws" {
   region    = "${var.aws_region}"
 }
 # Terraform backend definition to store the "tfstate" remotely in S3
-/* terraform {
-  backend "s3" {
-    bucket          = "fvarela-terraform-temp"
-    key             = "tf-demo-project/dev/terraform.tfstate"
-    region          = "us-east-1"
-    # This is used to lock concurrent apply operations. It requires
-    # a DynamoDB table created with the name as below with a primary 
-    # key named "LockID"
-    dynamodb_table  = "terraform_state_dev" 
-  }
-} */
+
+# terraform {
+#   backend "s3" {
+#     bucket          = "fvarela-terraform-temp"
+#     key             = "tf-demo-project/dev/terraform.tfstate"
+#     region          = "us-east-1"
+#     # This is used to lock concurrent apply operations. It requires
+#     # a DynamoDB table created with the name as below with a primary 
+#     # key named "LockID"
+#     dynamodb_table  = "terraform_state_dev" 
+#   }
+# }
+
+# Terraform backend definition to store the "tfstate" remotely in Terraform Enterprise (FREE)
+
+# terraform {
+#   backend "remote" {
+#     organization = "fervartel-personal"
+
+#     workspaces {
+#       name = "ws-aws-single-instance"
+#     }
+#   }
+# }
+
 # Creation of VPC and associated network features
 module "dev-vpc" {
     source      = "../tf-modules/vpc"
