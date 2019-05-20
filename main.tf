@@ -28,15 +28,15 @@ provider "aws" {
 # Terraform backend definition to store the "tfstate" remotely in Terraform Enterprise (FREE)
 # https://www.terraform.io/docs/enterprise/free/index.html#enable-remote-state-in-terraform-configurations
 
-# terraform {
-#   backend "remote" {
-#     organization = "fervartel-personal"
+terraform {
+  backend "remote" {
+    organization = "fervartel-personal"
 
-#     workspaces {
-#       name = "ws-aws-single-instance"
-#     }
-#   }
-# }
+    workspaces {
+      name = "ws-aws-single-instance"
+    }
+  }
+}
 
 # Creation of VPC and associated network features
 module "dev-vpc" {
@@ -68,7 +68,7 @@ module "dev-ec2-pub" {
 
     #instance_count  = 1
     #instance_type   = "t2.micro"
-    #ssh_key         = "fvarela-aws"
+    ssh_key         = "fvarela-aws-hotmail"
 
     #ami             = "ami-0ac019f4fcb7cb7e6"  # By default it'll resolve from ubuntu Data Source
 
