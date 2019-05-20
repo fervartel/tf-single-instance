@@ -26,6 +26,7 @@ provider "aws" {
 # }
 
 # Terraform backend definition to store the "tfstate" remotely in Terraform Enterprise (FREE)
+# https://www.terraform.io/docs/enterprise/free/index.html#enable-remote-state-in-terraform-configurations
 
 # terraform {
 #   backend "remote" {
